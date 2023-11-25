@@ -36,6 +36,14 @@ Route::get('/store', function () {
     return Inertia::render('Store');
 });
 
+Route::get('/word', function () {
+    return Inertia::render("Word");
+});
+
+Route::get('/worddetail', function() {
+    return Inertia::render("WordDetail");
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
