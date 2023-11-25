@@ -24,6 +24,18 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/test', function () {
+    return Inertia::render('Test');
+});
+
+Route::get('/upload', function() {
+    return Inertia::render('Upload');
+});
+
+Route::get('/store', function () {
+    return Inertia::render('Store');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

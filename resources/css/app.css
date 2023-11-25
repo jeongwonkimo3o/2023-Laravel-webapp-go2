@@ -1,3 +1,4 @@
+@import url('https://webfontworld.github.io/pretendard/Pretendard.css');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,3 +6,18 @@
 [x-cloak] {
     display: none;
 }
+
+* {
+    font-family: 'Pretendard';
+}
+
+body {
+    --dot-bg: white;
+    --dot-color: #c0c0c0;
+    --dot-size: 1px;
+    --dot-space: 22px;
+    background:
+      linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+      linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+      var(--dot-color);
+  }
