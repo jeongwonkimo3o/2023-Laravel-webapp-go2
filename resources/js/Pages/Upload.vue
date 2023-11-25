@@ -12,6 +12,7 @@
     <UploadFileListVue class="mt-10" />
   </div>
 </section>
+<FooterVue />
 </template>
 
 <script>
@@ -19,6 +20,7 @@ import DropZoneVue from '@/Components/DropZone.vue';
 import HeaderVue from '../Components/Header.vue';
 import ModalVue from '../Components/Modal.vue';
 import UploadFileListVue from '@/Components/UploadFileList.vue';
+import FooterVue from '@/Components/Footer.vue'
 
 export default {
 
@@ -26,7 +28,8 @@ export default {
         HeaderVue,
         ModalVue,
         DropZoneVue,
-        UploadFileListVue
+        UploadFileListVue,
+        FooterVue
     }
 
 }
