@@ -60,4 +60,12 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $appends = [
         'profile_photo_url',
     ];
+
+    /**
+ * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+ */
+    public function wordTitles()
+    {
+        return $this->belongsToMany(WordTitle::class, 'user_word_titles')->withTimestamps();
+    }
 }

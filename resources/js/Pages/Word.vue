@@ -7,9 +7,6 @@
       </h2>
     </header>
     <WordTitleCardVue class="mt-10" />
-    <WordTitleCardVue class="mt-6" />
-    <WordTitleCardVue class="mt-6" />
-    <WordTitleCardVue class="mt-6" />
   </div>
   <FooterVue />
 </template>

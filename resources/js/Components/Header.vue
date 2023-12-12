@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white">
+  <header>
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between">
         <div class="md:flex md:items-center md:gap-12">
@@ -12,19 +12,11 @@
         <div class="hidden md:block">
           <nav aria-label="Global">
             <ul class="flex items-center gap-6 text-sm">
-              <li>
-                <a
-                  class="text-black transition hover:text-gray-500/75"
-                  href="/"
-                >
-                  About
-                </a>
-              </li>
   
               <li>
                 <a
                   class="text-black transition hover:text-gray-500/75"
-                  href="/"
+                  href="/upload"
                 >
                   Upload
                 </a>
@@ -33,7 +25,7 @@
               <li>
                 <a
                   class="text-black transition hover:text-gray-500/75"
-                  href="/"
+                  href="/word"
                 >
                   Words
                 </a>
@@ -42,7 +34,7 @@
               <li>
                 <a
                   class="text-black transition hover:text-gray-500/75"
-                  href="/"
+                  href="/quiz"
                 >
                   Quiz
                 </a>
@@ -51,18 +43,19 @@
               <li>
                 <a
                   class="text-black transition hover:text-gray-500/75"
-                  href="/"
+                  href="/store"
                 >
                   Store
                 </a>
               </li>
+              
             </ul>
           </nav>
         </div>
   
         <div class="flex items-center gap-4">
           <div class="sm:flex sm:gap-4">
-            <img src="../../../public/build/assets/icons/logout.png" alt="">
+            <img src="../../../public/build/assets/icons/user.png" class="cursor-pointer w-7" alt="logout">
           </div>
   
           <div class="block md:hidden">
@@ -91,10 +84,8 @@
   </header>
 </template>
 
-<script>
-export default {
-  name: 'Header'
-}
+<script setup>
+
 </script>
 
 <style>

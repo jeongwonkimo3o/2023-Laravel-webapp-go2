@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+<WordAddModalVue v-if="store.state.wordAddModal"/>
   <div
     class="relative inline-flex items-center overflow-hidden "
   >
@@ -39,6 +39,7 @@
         href="#"
         class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
         role="menuitem"
+        @click="onOffWordAddModal"
       >
         단어 추가
       </a>
@@ -47,6 +48,7 @@
         href="#"
         class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
         role="menuitem"
+        @click="deleteWordTitle"
       >
         단어장 삭제
       </a>
@@ -71,25 +73,51 @@
 
     
   </div>
-</div>
 </template>
 
-<script>
-export default {
-  name: "LanguageDropdown",
+<script setup>
 
-  data() {
-    return {
-      dropdownClick: false
-    } 
-  },
+import { ref, onMounted, watch } from 'vue';
+import { useStore } from 'vuex';
+import WordAddModalVue from '@/Components/WordAddModal.vue'
+import { useRoute } from 'vue-router';
 
-  methods: {
-    onOffDropdown() {
-      this.dropdownClick = !this.dropdownClick
-    }
-  }
+const store = useStore();
+const route = useRoute();
+const id = ref(route.params.id);
+
+
+let dropdownClick = ref(false); 
+
+// 버튼을 누르면 드롭다운 메뉴가 나타나고 사라지는 함수
+function onOffDropdown() {
+  dropdownClick.value = !dropdownClick.value;
 }
+
+// 단어 추가를 누르면 모달창이 나타나고 사라지는 함수
+function onOffWordAddModal() {
+  store.commit('toggleWordAddModal');
+}
+
+const deleteWordTitle = () => {
+  axios.delete(`/delete-title/${id.value}`)
+    .then(response => {
+      console.log(response);
+      alert('단어장이 삭제되었습니다.');
+      location.href = '/word';
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
+
+watch(() => route.params.id, (newId) => {
+  if (newId) {
+    id.value = newId;
+    console.log(id.value)
+  }
+}, { immediate: true });
+
 </script>
 
 <style>

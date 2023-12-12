@@ -16,6 +16,7 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree'],
+                opacity: ['group-hover']
             },
         },
     },
