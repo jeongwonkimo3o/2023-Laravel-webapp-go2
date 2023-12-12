@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('synonym')->nullable();
             $table->string('antonym')->nullable();
             $table->string('explain')->nullable();
-            $table->string('lang', 50);
+            $table->string('lang', 50); // 제거 완료
             $table->boolean('mark')->default(0); // 0: 단어를 모름
             $table->timestamps();
 
