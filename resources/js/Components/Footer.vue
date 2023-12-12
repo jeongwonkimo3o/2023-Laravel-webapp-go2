@@ -1,8 +1,8 @@
 <template>
 <footer>
-  <div class="mx-auto max-w-screen-xl px-4 pb-6 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 min-h-full h-auto">
     <div
-      class="mt-10 border-t border-gray-100 pt-6 sm:flex sm:items-center sm:justify-between"
+      class="mt-10 border-t border-gray-100 pt-6 sm:flex sm:items-center sm:justify-between relative -translate-y-full"
     >
       <p class="text-center text-sm text-gray-500 sm:text-left">
         Copyright &copy; 2023. All rights reserved.
@@ -38,12 +38,6 @@
 </footer>
 </template>
 
-<script>
-export default {
+<script setup>
 
-}
 </script>
-
-<style>
-
-</style>
