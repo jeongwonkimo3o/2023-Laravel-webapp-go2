@@ -3,7 +3,7 @@
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 ">
     <header class="flex justify-between items-end">
       <h2 class="text-xl font-medium text-gray-900 sm:text-2xl">
-        다른 유저가 공유한 단어장을 받아올 수 있습니다.
+        단어장에 담긴 단어들을 확인할 수 있습니다.
       </h2>
       <div class="relative" >
         <WordDropdownVue />
