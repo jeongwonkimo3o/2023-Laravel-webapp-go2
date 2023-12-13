@@ -4,9 +4,9 @@
   <div class="flex items-start gap-4 p-4 sm:p-6 lg:p-6">
     <div>
       <h3 class="font-medium sm:text-lg">
-         <router-link :to="`/worddetail/${wordTitle.id}`" class="hover:underline">
+      <a :href="`/worddetail/${wordTitle.id}`" class="hover:underline">
             {{ wordTitle.title }}
-          </router-link>
+          </a>
       </h3>
     </div>
   </div>
