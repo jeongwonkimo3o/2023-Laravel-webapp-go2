@@ -11,7 +11,7 @@
     </header>
   <WordsTableVue />
   </div>
-  <FooterVue />
+  <!-- <FooterVue /> -->
 </template>
 
 <script setup>
