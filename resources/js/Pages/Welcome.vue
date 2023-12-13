@@ -13,12 +13,12 @@ defineProps({
 <template>
     <Head title="Welcome" />
 
-    <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center  dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+    <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center   selection:bg-red-500 selection:text-white">
       
 
         <div class="max-w-7xl mx-auto p-6 lg:p-8">
             <div class="flex justify-center">
-                <img src="../../../public/build/assets/icons/go2-logo-big.png" class="w-24" alt="go2-logo">
+                <img src="../../../public/icons/go2-logo-big.png" class="w-24" alt="go2-logo">
 
             </div>
 
