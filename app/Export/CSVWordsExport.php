@@ -58,7 +58,7 @@ class CSVWordsExport implements FromCollection, WithHeadings, WithTitle
                     '발음' => $word->pronunciation,
                     '동의어' => $word->synonym,
                     '반의어' => $word->antonym,
-                    '명' => $word->explain,
+                    '설명' => $word->explain,
                 ]);
             }
         }
