@@ -12,7 +12,7 @@
         <UploadFileListVue class="mt-10" />
       </div>
     </section>
-    <FooterVue class="mt-16"/>
+    <FooterVue class="fixed"/>
   </div>
 </template>
 

@@ -1,6 +1,15 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
 import Footer from '@/Components/Footer.vue';
+import { Inertia } from '@inertiajs/inertia';
+
+// 이동하려는 경로 및 데이터
+const pageUrl = '/word'; // 이동하려는 페이지의 URL
+
+// 1.5초 후에 페이지 이동
+setTimeout(() => {
+  Inertia.visit(pageUrl);
+}, 1500);
 
 defineProps({
     canLogin: Boolean,
@@ -24,10 +33,6 @@ defineProps({
 
             <div class="flex justify-center mt-5 px-6 sm:items-center sm:justify-between">
                 <div class="text-center text-xl text-gray-800 dark:text-gray-400 sm:text-start">
-                    <a :href="route('register')"><p class="hover:underline hover:text-pink-600 font-bold">
-                            시작하기!
-                        </p>
-                    </a>
                 </div>
 
                 
