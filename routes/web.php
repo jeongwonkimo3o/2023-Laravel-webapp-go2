@@ -33,12 +33,6 @@ Route::get('/', function () {
     ]);
 });
 
-// 임시 메인
-Route::get('/test', function () {
-    return Inertia::render('Test');
-})->middleware('auth');
-
-
 // ^ 업로드 관련
 
 // 업로드 페이지 렌더링
