@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import WordDetail from '../Pages/WordDetail.vue';
-import Test from '../Pages/Test.vue';
 import Word from '../Pages/Word.vue';
 import Upload from '../Pages/Upload.vue';
 import Store from '../Pages/Store.vue';
@@ -8,10 +7,6 @@ import Store from '../Pages/Store.vue';
 const router = createRouter({
     history : createWebHistory(),
     routes : [
-      {
-        path: '/',
-        component: Test
-      },
       {
         path: '/word',
         component: Word
