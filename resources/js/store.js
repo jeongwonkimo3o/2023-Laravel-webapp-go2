@@ -5,6 +5,7 @@ const store = createStore({
     return {
       isFileUploaded: false,
       wordTitles: [],
+      selectedLanguage: 'EN',
       wordAddModal: false,
     };
   },
@@ -17,7 +18,13 @@ const store = createStore({
     },
     toggleWordAddModal(state) {
       state.wordAddModal = !state.wordAddModal;
-    }
+    },
+    setSelectedLanguage(state, language) {
+      state.selectedLanguage = language;
+    },
+    setWordTitles(state, titles) {
+      state.wordTitles = titles;
+    },
   },
   actions: {
     setFileUploaded({ commit }, status) {
@@ -25,7 +32,7 @@ const store = createStore({
     },
     setWordTitles({ commit }, wordTitles) {
       commit('SET_WORD_TITLES', wordTitles);
-    }
+    },
   }
 });
 
