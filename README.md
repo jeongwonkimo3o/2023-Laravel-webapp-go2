@@ -10,7 +10,7 @@ CSV形式の単語帳ファイルをアップロードして、簡単に個人�
 2. バックエンド: Laravel
 3. フロントエンド: Inertia.js (Vue.js), Tailwind
 4. データベース: postgresql
-5. その他: Laravel Excel, Jetstream, HyperUI
+5. その他: Laravel Excel, Jetstream, HyperUI, Vuex
 
 ## 主要機能
 1. CSV形式の単語帳をアップロードし、サイト内で自分だけの単語帳を簡単に作成できます。
