@@ -39,6 +39,7 @@
         href="#"
         class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
         role="menuitem"
+        @click="setLanguage('EN')"
       >
         영어
       </a>
@@ -47,6 +48,7 @@
         href="#"
         class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
         role="menuitem"
+        @click="setLanguage('JP')"
       >
         일본어
       </a>
@@ -55,6 +57,7 @@
         href="#"
         class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
         role="menuitem"
+        @click="setLanguage('CHN')"
       >
         쭝꿕어
       </a>
@@ -63,6 +66,7 @@
         href="#"
         class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
         role="menuitem"
+        @click="setLanguage('ETC')"
       >
         기타 언어
       </a>
@@ -73,22 +77,38 @@
 </div>
 </template>
 
-<script>
-export default {
-  name: "LanguageDropdown",
+<script setup>
 
-  data() {
-    return {
-      dropdownClick: false
-    } 
-  },
+import { useStore } from 'vuex';
+import { ref, computed } from 'vue';
+import axios from 'axios';
 
-  methods: {
-    onOffDropdown() {
-      this.dropdownClick = !this.dropdownClick
-    }
-  }
+
+const store = useStore();
+const dropdownClick = ref(false);
+const wordTitles = computed(() => store.state.wordTitles);
+
+const setLanguage = async (language) => {
+  store.commit('setSelectedLanguage', language);
+  await fetchWordTitles();
 }
+
+const onOffDropdown = () => {
+  dropdownClick.value = !dropdownClick.value;
+}
+
+// 언어별 조회
+const fetchWordTitles = async () => {
+  try {
+    const selectedLanguage = store.state.selectedLanguage;
+    const response = await axios.get(`/titles/${selectedLanguage}`);
+    store.commit('setWordTitles', response.data); // Vuex 스토어 업데이트
+    console.log(response.data);
+  } catch (error) {
+    console.error('언어별 단어장 조회 실패:', error);
+  }
+};
+  
 </script>
 
 <style>
