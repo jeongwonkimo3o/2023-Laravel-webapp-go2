@@ -40,32 +40,32 @@ const closeModal = () => {
 <template>
     <ActionSection>
         <template #title>
-            Delete Account
+            회원탈퇴
         </template>
 
         <template #description>
-            Permanently delete your account.
+            계정을 탈퇴할 수 있습니다.
         </template>
 
         <template #content>
             <div class="max-w-xl text-sm text-gray-600">
-                Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.
+                계정이 삭제되면 해당 계정의 모든 리소스와 데이터가 영구적으로 삭제됩니다. 계정을 삭제하기 전에 보존하려는 데이터나 정보를 백업해 주세요.
             </div>
 
             <div class="mt-5">
                 <DangerButton @click="confirmUserDeletion">
-                    Delete Account
+                    회원탈퇴
                 </DangerButton>
             </div>
 
             <!-- Delete Account Confirmation Modal -->
             <DialogModal :show="confirmingUserDeletion" @close="closeModal">
                 <template #title>
-                    Delete Account
+                    회원탈퇴
                 </template>
 
                 <template #content>
-                    Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.
+                    계정을 삭제하시겠습니까? 계정이 삭제되면 모든 리소스 및 데이터가 영구적으로 삭제됩니다. 계정을 영구적으로 삭제할지 확인하려면 암호를 입력하십시오.
 
                     <div class="mt-4">
                         <TextInput
@@ -73,7 +73,7 @@ const closeModal = () => {
                             v-model="form.password"
                             type="password"
                             class="mt-1 block w-3/4"
-                            placeholder="Password"
+                            placeholder="비밀번호"
                             autocomplete="current-password"
                             @keyup.enter="deleteUser"
                         />
@@ -84,7 +84,7 @@ const closeModal = () => {
 
                 <template #footer>
                     <SecondaryButton @click="closeModal">
-                        Cancel
+                        취소
                     </SecondaryButton>
 
                     <DangerButton
@@ -93,7 +93,7 @@ const closeModal = () => {
                         :disabled="form.processing"
                         @click="deleteUser"
                     >
-                        Delete Account
+                        회원탈퇴
                     </DangerButton>
                 </template>
             </DialogModal>

@@ -40,16 +40,16 @@ const updatePassword = () => {
 <template>
     <FormSection @submitted="updatePassword">
         <template #title>
-            Update Password
+            비밀번호 변경
         </template>
 
         <template #description>
-            Ensure your account is using a long, random password to stay secure.
+            계정 안전을 유지하기 위해 다른 사이트에서 사용하지 않는 비밀번호를 사용하세요.
         </template>
 
         <template #form>
             <div class="col-span-6 sm:col-span-4">
-                <InputLabel for="current_password" value="Current Password" />
+                <InputLabel for="current_password" value="현재 비밀번호" />
                 <TextInput
                     id="current_password"
                     ref="currentPasswordInput"
@@ -62,7 +62,7 @@ const updatePassword = () => {
             </div>
 
             <div class="col-span-6 sm:col-span-4">
-                <InputLabel for="password" value="New Password" />
+                <InputLabel for="password" value="새로운 비밀번호" />
                 <TextInput
                     id="password"
                     ref="passwordInput"
@@ -75,7 +75,7 @@ const updatePassword = () => {
             </div>
 
             <div class="col-span-6 sm:col-span-4">
-                <InputLabel for="password_confirmation" value="Confirm Password" />
+                <InputLabel for="password_confirmation" value="비밀번호 확인" />
                 <TextInput
                     id="password_confirmation"
                     v-model="form.password_confirmation"
@@ -93,7 +93,7 @@ const updatePassword = () => {
             </ActionMessage>
 
             <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
+                저장
             </PrimaryButton>
         </template>
     </FormSection>
