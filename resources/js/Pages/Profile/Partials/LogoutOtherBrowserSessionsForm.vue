@@ -45,17 +45,17 @@ const closeModal = () => {
 <template>
     <ActionSection>
         <template #title>
-            Browser Sessions
+            브라우저 세션
         </template>
 
         <template #description>
-            Manage and log out your active sessions on other browsers and devices.
+            다른 브라우저 및 장치에서 활성 세션을 관리하고 로그아웃합니다.
+
         </template>
 
         <template #content>
             <div class="max-w-xl text-sm text-gray-600">
-                If necessary, you may log out of all of your other browser sessions across all of your devices. Some of your recent sessions are listed below; however, this list may not be exhaustive. If you feel your account has been compromised, you should also update your password.
-            </div>
+                필요한 경우 모든 장치에서 다른 브라우저 세션을 모두 로그아웃할 수 있습니다. 최근 세션 중 일부는 아래에 나열되어 있지만 이 목록이 완전하지는 않을 수 있습니다. 계정이 해킹되었다고 생각되면 암호도 업데이트해야 합니다.            </div>
 
             <!-- Other Browser Sessions -->
             <div v-if="sessions.length > 0" class="mt-5 space-y-6">
@@ -89,22 +89,22 @@ const closeModal = () => {
 
             <div class="flex items-center mt-5">
                 <PrimaryButton @click="confirmLogout">
-                    Log Out Other Browser Sessions
+                    다른 브라우저 세션 로그아웃
                 </PrimaryButton>
 
                 <ActionMessage :on="form.recentlySuccessful" class="ms-3">
-                    Done.
+                    완료.
                 </ActionMessage>
             </div>
 
             <!-- Log Out Other Devices Confirmation Modal -->
             <DialogModal :show="confirmingLogout" @close="closeModal">
                 <template #title>
-                    Log Out Other Browser Sessions
+                    다른 브라우저 세션 로그아웃
                 </template>
 
                 <template #content>
-                    Please enter your password to confirm you would like to log out of your other browser sessions across all of your devices.
+                    모든 장치에서 다른 브라우저 세션에서 로그아웃하려면 암호를 입력하십시오.
 
                     <div class="mt-4">
                         <TextInput
@@ -112,7 +112,7 @@ const closeModal = () => {
                             v-model="form.password"
                             type="password"
                             class="mt-1 block w-3/4"
-                            placeholder="Password"
+                            placeholder="비밀번호"
                             autocomplete="current-password"
                             @keyup.enter="logoutOtherBrowserSessions"
                         />
@@ -123,7 +123,7 @@ const closeModal = () => {
 
                 <template #footer>
                     <SecondaryButton @click="closeModal">
-                        Cancel
+                        취소
                     </SecondaryButton>
 
                     <PrimaryButton
@@ -132,7 +132,7 @@ const closeModal = () => {
                         :disabled="form.processing"
                         @click="logoutOtherBrowserSessions"
                     >
-                        Log Out Other Browser Sessions
+                        다른 브라우저 세션 로그아웃
                     </PrimaryButton>
                 </template>
             </DialogModal>

@@ -78,11 +78,11 @@ const clearPhotoFileInput = () => {
 <template>
     <FormSection @submitted="updateProfileInformation">
         <template #title>
-            Profile Information
+            프로필 정보
         </template>
 
         <template #description>
-            Update your account's profile information and email address.
+            계정의 프로필 정보와 이메일 주소를 업데이트합니다.
         </template>
 
         <template #form>
@@ -130,7 +130,7 @@ const clearPhotoFileInput = () => {
 
             <!-- Name -->
             <div class="col-span-6 sm:col-span-4">
-                <InputLabel for="name" value="Name" />
+                <InputLabel for="name" value="닉네임" />
                 <TextInput
                     id="name"
                     v-model="form.name"
@@ -144,7 +144,7 @@ const clearPhotoFileInput = () => {
 
             <!-- Email -->
             <div class="col-span-6 sm:col-span-4">
-                <InputLabel for="email" value="Email" />
+                <InputLabel for="email" value="이메일" />
                 <TextInput
                     id="email"
                     v-model="form.email"
@@ -183,7 +183,7 @@ const clearPhotoFileInput = () => {
             </ActionMessage>
 
             <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
+                저장
             </PrimaryButton>
         </template>
     </FormSection>
