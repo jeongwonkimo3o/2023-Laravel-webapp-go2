@@ -14,21 +14,11 @@
   <FooterVue />
 </template>
 
-<script>
+<script setup>
 import HeaderVue from '@/Components/Header.vue'
 import FooterVue from '@/Components/Footer.vue'
 import WordsTableVue from '@/Components/WordsTable.vue'
 import WordDropdownVue from '@/Components/WordDropdown.vue'
-
-
-export default {
-  components: {
-    HeaderVue,
-    FooterVue,
-    WordsTableVue,
-    WordDropdownVue
-  }
-}
 </script>
 
 <style>
