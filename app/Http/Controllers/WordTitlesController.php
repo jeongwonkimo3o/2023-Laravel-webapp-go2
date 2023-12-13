@@ -58,4 +58,13 @@ class WordTitlesController extends Controller
 
         return response()->json($wordTitles); // JSON 형태로 반환
     }
+
+    // 유저가 선택한 언어별로 단어장을 조회
+    public function getWordTitlesByLang($lang)
+    {
+        $wordTitles = WordTitle::with('users')
+            ->where('lang', $lang)->get();
+
+        return response()->json($wordTitles);
+    }
 }
