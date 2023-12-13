@@ -1,5 +1,5 @@
 <template>
-<footer class="fixed inset-x-0 bottom-0">
+<footer class="relative inset-x-0 bottom-0 ">
   <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 min-h-full h-auto">
     <div
       class="mt-10 border-t border-gray-100 pt-6 sm:flex sm:items-center sm:justify-between relative -translate-y-full"
