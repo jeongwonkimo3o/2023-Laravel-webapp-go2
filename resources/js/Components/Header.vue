@@ -5,7 +5,7 @@
         <div class="md:flex md:items-center md:gap-12">
           <a class="block" href="/">
             <span class="sr-only">Home</span>
-            <img src="../../../public/build/assets/icons/go2-logo.png" class="w-12" alt="go2-logo">
+            <img src="../../../public/icons/go2-logo.png" class="w-12" alt="go2-logo">
           </a>
         </div>
   
@@ -47,12 +47,12 @@
         <div class="flex items-center gap-4">
           <div class="sm:flex sm:gap-4">
             <a href="/user/profile">
-            <img src="../../../public/build/assets/icons/user.png" class="cursor-pointer w-7" alt="logout">
+            <img src="../../../public/icons/user.png" class="cursor-pointer w-7" alt="logout">
             </a>
           </div>
           <div class="sm:flex sm:gap-4">
             <Link href="/logout" method="post" as="button" type="button">
-            <img src="../../../public/build/assets/icons/logout.png" class="cursor-pointer w-7" alt="logout">
+            <img src="../../../public/icons/logout.png" class="cursor-pointer w-7" alt="logout">
             </Link>
           </div>
   
