@@ -34,15 +34,6 @@
               <li>
                 <a
                   class="text-black transition hover:text-gray-500/75"
-                  href="/quiz"
-                >
-                  Quiz
-                </a>
-              </li>
-  
-              <li>
-                <a
-                  class="text-black transition hover:text-gray-500/75"
                   href="/store"
                 >
                   Store
