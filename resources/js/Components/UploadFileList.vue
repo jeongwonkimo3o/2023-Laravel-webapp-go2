@@ -34,6 +34,7 @@
               class="mt-1.5 w-20 rounded-lg border-white text-gray-700 sm:text-sm"
               @change="event => selectLanguage(event, wordTitle)"
             >
+              <option value="EN">설정</option>
               <option value="EN">EN</option>
               <option value="JP">JP</option>
               <option value="CHN">CHN</option>
@@ -68,7 +69,7 @@ const store = useStore();
 const isFileUploaded = computed(() => store.state.isFileUploaded);
 
 const wordTitles = ref([]);
-const lang = ref('EN');
+const lang = ref('');
 
 // 파일 업로드 상태가 변경될 때 마다 실행
 watch(isFileUploaded, (newValue) => {
@@ -112,8 +113,21 @@ const deleteFile = (id) => {
 // language를 선택하면 language 변수에 값이 저장됨
 const selectLanguage = (event, wordTitle) => {
   wordTitle.lang = event.target.value;
+  saveLanguage(wordTitle.lang, wordTitle.id);
 };
 
+// language를 선택하면 DB에 저장되는 함수
+const saveLanguage = (lang, id) => {
+  axios.post(`/setting-lang/${id}`, {
+    lang: lang
+  })
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.error("언어 업데이트를 실패 했습니다.", error);
+    });
+};
 
 </script>
 

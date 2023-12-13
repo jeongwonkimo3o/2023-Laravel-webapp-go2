@@ -57,6 +57,7 @@
         href="#"
         class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
         role="menuitem"
+        @click="shareWordTitle"
       >
         스토어에 공유
       </a>
@@ -65,6 +66,7 @@
         href="#"
         class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
         role="menuitem"
+        @click="exportCsv"
       >
         csv 내보내기
       </a>
@@ -90,12 +92,12 @@ const id = ref(route.params.id);
 let dropdownClick = ref(false); 
 
 // 버튼을 누르면 드롭다운 메뉴가 나타나고 사라지는 함수
-function onOffDropdown() {
+const onOffDropdown = () => {
   dropdownClick.value = !dropdownClick.value;
 }
 
 // 단어 추가를 누르면 모달창이 나타나고 사라지는 함수
-function onOffWordAddModal() {
+const onOffWordAddModal = () => {
   store.commit('toggleWordAddModal');
 }
 
@@ -110,6 +112,56 @@ const deleteWordTitle = () => {
       console.log(error);
     });
 }
+
+// 스토어에 공유를 누르면 API 통신을 함
+const shareWordTitle = () => {
+  axios.post(`/word-titles/${id.value}/store`, {
+    title_id: id.value
+  })
+  .then(function (response) {
+    console.log(response);
+    alert('스토어에 업로드가 되었습니다.');
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
+
+// csv 내보내기를 누르면 API 통신을 함
+const exportCsv = () => {
+  axios({
+    url: `/export-wordtitle/${id.value}`,
+    method: 'GET',
+    responseType: 'blob', // 중요: 서버 응답을 blob으로 받음
+  })
+  .then((response) => {
+    console.log(response)
+    // Blob 데이터에서 다운로드 URL 생성
+    const url = window.URL.createObjectURL(new Blob([response.data]));
+    const link = document.createElement('a');
+    link.href = url;
+
+    // 'content-disposition' 헤더에서 파일 이름 추출
+    const contentDisposition = response.headers['content-disposition'];
+    let fileName = 'download.xlsx'; // 기본 파일 이름
+    if (contentDisposition) {
+      const fileNameMatch = contentDisposition.match(/filename="?(.*)"?(;|$)/);
+      if (fileNameMatch.length > 1)
+        fileName = fileNameMatch[1];
+    }
+
+    link.setAttribute('download', fileName);
+    document.body.appendChild(link);
+    link.click(); // 링크 클릭을 통해 다운로드
+    document.body.removeChild(link); // 더 이상 필요 없으므로 링크 삭제
+    window.URL.revokeObjectURL(url); // 생성된 URL 해제
+  })
+  .catch((error) => {
+    console.error("Download error:", error);
+    alert('파일을 다운로드하는 데 실패했습니다.');
+  });
+};
+
 
 watch(() => route.params.id, (newId) => {
   if (newId) {

@@ -11,19 +11,12 @@
   <FooterVue />
 </template>
 
-<script>
+<script setup>
 import HeaderVue from '@/Components/Header.vue'
 import WordTitleCardVue from '@/Components/WordTitleCard.vue'
 import FooterVue from '@/Components/Footer.vue'
 
 
-export default {
-  components: {
-    HeaderVue,
-    WordTitleCardVue,
-    FooterVue
-  }
-}
 </script>
 
 <style>

@@ -20,5 +20,9 @@ class Word extends Model
       'explain'        // 설명
      ];
 
+     public function wordTitle()
+     {
+         return $this->belongsTo(WordTitle::class, 'title_id');
+     }
     
 }

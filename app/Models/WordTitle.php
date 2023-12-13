@@ -13,6 +13,11 @@ class WordTitle extends Model
     //     'title'
     // ];
 
+    public function words()
+    {
+        return $this->hasMany(Word::class, 'title_id');
+    }
+
     public function users()
     {
         return $this->belongsToMany(User::class, 'user_word_titles')->withTimestamps();

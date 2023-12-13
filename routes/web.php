@@ -1,7 +1,11 @@
 <?php
+
+use App\Http\Controllers\CSVExportController;
+use App\Http\Controllers\StoreController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\WordsController;
 use App\Http\Controllers\WordTitlesController;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -17,7 +21,7 @@ use Inertia\Inertia;
 |
 */
 
-// !!!!!!!!! 나중에 라우팅 정리좀
+// TODO: 나중에 라우팅 그룹핑 필요
 
 
 Route::get('/', function () {
@@ -49,8 +53,7 @@ Route::post('/upload', [UploadController::class, 'upload']);
 Route::get('/upload-title', [WordTitlesController::class, 'getUploadWordTitles']);
 
 // 단어장 언어 설정
-Route::patch('/update-language', [UploadController::class, 'updateLanguage']);
-
+Route::post('/setting-lang/{id}', [UploadController::class, 'updateLanguage']);
 
 // ^ 단어장 관련
 
@@ -60,6 +63,9 @@ Route::get('/word', function () {
 });
 // 단어장 목록 조회
 Route::get('/titles', [WordTitlesController::class, 'getAllWordTitles']);
+
+// 단어장 언어별 조회
+Route::get('/titles/{lang}', [WordTitlesController::class, 'getWordTitlesByLang']);
 
 // 단어장에 속한 단어들 조회
 Route::get('/worddetail/{id}', [WordsController::class, 'getWords']);
@@ -73,6 +79,9 @@ Route::post('/add-word', [WordsController::class, 'addWord']);
 // 단어 삭제
 Route::delete('/delete-word/{id}', [WordsController::class, 'deleteWord']);
 
+// 단어 csv 파일로 내보내기
+Route::get('/export-wordtitle/{wordTitleId}', [CSVExportController::class, 'export']);
+
 
 // ^ 단어장 스토어 관련
 
@@ -81,14 +90,15 @@ Route::get('/store', function () {
     return Inertia::render('Store');
 });
 
+// 스토어에 저장된 단어장 목록 조회
+Route::get('/stored-word-titles', [StoreController::class, 'getStoredWordTitles']);
 
-// ^ 퀴즈 관련
 
-// 퀴즈 페이지 렌더링
-Route::get('/quiz', function() {
-    return Inertia::render("Quiz");
-});
+// word_titles 테이블 store 변경
+Route::post('/word-titles/{id}/store', [StoreController::class, 'toggleStoreWordTitle']);
 
+// 스토어에 저장된 단어장 다운로드
+Route::post('/download-word-title/{wordTitleId}', [StoreController::class, 'downloadWordTitle']);
 
 Route::middleware([
     'auth:sanctum',
