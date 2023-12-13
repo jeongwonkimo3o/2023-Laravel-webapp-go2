@@ -59,7 +59,7 @@
         role="menuitem"
         @click="setLanguage('CHN')"
       >
-        쭝꿕어
+        중국어
       </a>
 
       <a
