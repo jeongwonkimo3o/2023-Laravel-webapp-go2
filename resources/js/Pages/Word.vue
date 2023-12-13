@@ -8,7 +8,7 @@
     </header>
     <WordTitleCardVue class="mt-10" />
   </div>
-  <FooterVue />
+  <FooterVue class="relative"/>
 </template>
 
 <script setup>

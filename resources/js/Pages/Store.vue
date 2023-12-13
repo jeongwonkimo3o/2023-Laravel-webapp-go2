@@ -12,7 +12,7 @@
      <StoreCardVue class="mt-12" />
      
   </div>
-  <FooterVue />
+  <FooterVue class="relative"/>
 </template>
 
 <script setup>
